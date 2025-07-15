@@ -61,7 +61,10 @@ export function ServiceSection() {
               </ul>
               <div className="pt-2">
                 <span className="text-2xl font-bold text-blue-600">$25</span>
-                <span className="text-gray-600"> starting from</span>
+                <span className="text-secondary-foreground/60">
+                  {" "}
+                  starting from
+                </span>
               </div>
             </CardContent>
           </Card>
@@ -104,7 +107,10 @@ export function ServiceSection() {
               </ul>
               <div className="pt-2">
                 <span className="text-2xl font-bold text-blue-600">$45</span>
-                <span className="text-gray-600"> starting from</span>
+                <span className="text-secondary-foreground/60">
+                  {" "}
+                  starting from
+                </span>
               </div>
             </CardContent>
           </Card>

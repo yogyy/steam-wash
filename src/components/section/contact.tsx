@@ -22,7 +22,7 @@ export function ContactSection() {
             <Button
               size="lg"
               variant="secondary"
-              className="bg-white text-blue-600 hover:bg-gray-100"
+              className="cursor-pointer bg-white text-blue-600 hover:bg-gray-100"
             >
               <Phone className="mr-2 h-4 w-4" />
               Call (555) 123-4567
@@ -30,7 +30,7 @@ export function ContactSection() {
             <Button
               size="lg"
               variant="outline"
-              className="border-white bg-transparent text-white hover:bg-white hover:text-blue-600"
+              className="hover:text-background cursor-pointer border-white bg-transparent text-white hover:bg-white"
             >
               <Mail className="mr-2 h-4 w-4" />
               Email Us
