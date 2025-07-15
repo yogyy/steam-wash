@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=TikTok+Sans:opsz,wght@12..36,300..900&display=swap");
+
 @import "tailwindcss";
 @import "tw-animate-css";
 
@@ -115,6 +117,21 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground;
+    background-color: var(--background);
+    background-color: var(--background);
+
+    font-family: "TikTok Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-variation-settings:
+      "slnt" 0,
+      "wdth" 100;
+  }
+
+  #root {
+    display: flex;
+    flex-direction: column;
+    min-height: 100svh;
   }
 }
