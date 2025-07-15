@@ -6,6 +6,7 @@ import {
   CardHeader,
   CardTitle,
 } from "../ui/card";
+import Placeholder from "@/assets/placeholder.svg";
 
 export function ServiceSection() {
   return (
@@ -34,7 +35,7 @@ export function ServiceSection() {
             </CardHeader>
             <CardContent className="space-y-4">
               <img
-                src="/src/assets/placeholder.svg?height=200&width=400"
+                src={Placeholder}
                 width={400}
                 height={200}
                 alt="Motorcycle being steam washed"
@@ -77,7 +78,7 @@ export function ServiceSection() {
             </CardHeader>
             <CardContent className="space-y-4">
               <img
-                src="/src/assets/placeholder.svg?height=200&width=400"
+                src={Placeholder}
                 width={400}
                 height={200}
                 alt="Car being steam washed"

@@ -1,6 +1,7 @@
 import { Phone, Star, Zap } from "lucide-react";
 import { Button } from "../ui/button";
 import { Badge } from "../ui/badge";
+import Placeholder from "@/assets/placeholder.svg";
 
 export function HeroSection() {
   return (
@@ -46,7 +47,7 @@ export function HeroSection() {
           </div>
           <div className="flex items-center justify-center">
             <img
-              src="/src/assets/placeholder.svg?height=400&width=600"
+              src={Placeholder}
               width={600}
               height={400}
               alt="Steam washing a motorcycle and car"
