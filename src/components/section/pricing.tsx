@@ -10,7 +10,10 @@ import { Button } from "../ui/button";
 
 export function PricingSection() {
   return (
-    <section id="pricing" className="w-full py-12 md:py-24 lg:py-32">
+    <section
+      id="pricing"
+      className="w-full scroll-mt-16 py-12 md:py-24 lg:py-32"
+    >
       <div className="max-w- container mx-auto px-4 md:px-6">
         <div className="flex flex-col items-center justify-center space-y-4 text-center">
           <div className="space-y-2">
