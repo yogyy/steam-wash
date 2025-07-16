@@ -2,6 +2,7 @@ import { Phone, Star, Zap } from "lucide-react";
 import { Button } from "../ui/button";
 import { Badge } from "../ui/badge";
 import Placeholder from "@/assets/placeholder.svg";
+import NumberFlow from "@number-flow/react";
 
 export function HeroSection() {
   return (
@@ -43,7 +44,9 @@ export function HeroSection() {
                 <span className="font-medium">4.9/5</span>
               </div>
               <span>•</span>
-              <span>500+ Happy Customers</span>
+              <span>
+                <NumberFlow value={265} />+ Happy Customers
+              </span>
               <span>•</span>
               <span>Same Day Service</span>
             </div>
