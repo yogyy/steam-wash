@@ -9,7 +9,7 @@ import { Footer } from "./components/section/footer";
 
 function App() {
   return (
-    <ThemeProvider defaultTheme="dark" storageKey="steam_site-theme">
+    <ThemeProvider defaultTheme="system" storageKey="steam_site-theme">
       <Navbar />
 
       <main className="flex-1">
