@@ -10,18 +10,15 @@ import { Button } from "../ui/button";
 
 export function PricingSection() {
   return (
-    <section
-      id="pricing"
-      className="w-full scroll-mt-16 py-12 md:py-24 lg:py-32"
-    >
+    <section id="harga" className="w-full scroll-mt-16 py-12 md:py-24 lg:py-32">
       <div className="max-w- container mx-auto px-4 md:px-6">
         <div className="flex flex-col items-center justify-center space-y-4 text-center">
           <div className="space-y-2">
             <h2 className="text-primary text-3xl font-bold tracking-tighter sm:text-5xl">
-              Simple Pricing
+              Detail Harga
             </h2>
             <p className="max-w-[900px] text-gray-600 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-              Transparent pricing with no hidden fees
+              Harga transparan tanpa biaya tersembunyi
             </p>
           </div>
         </div>
@@ -33,13 +30,15 @@ export function PricingSection() {
                 <Bike className="h-6 w-6 text-blue-600" />
               </div>
               <CardDescription>
-                Perfect for bikes, scooters, and motorcycles
+                Cocok untuk sepeda lisrik, motor kecil dan motor besar
               </CardDescription>
             </CardHeader>
             <CardContent className="space-y-4">
               <div className="text-center">
-                <span className="text-4xl font-bold text-blue-600">$25</span>
-                <span className="text-gray-600"> - $35</span>
+                <span className="text-4xl font-bold text-blue-600">
+                  Rp7.000
+                </span>
+                <span className="text-gray-600"> - Rp15.000</span>
               </div>
               <ul className="space-y-2">
                 <li className="flex items-center gap-2">
@@ -56,7 +55,7 @@ export function PricingSection() {
                 </li>
                 <li className="flex items-center gap-2">
                   <CheckCircle className="h-4 w-4 text-green-600" />
-                  <span className="text-sm">Tire shine</span>
+                  <span className="text-sm">Semir ban</span>
                 </li>
               </ul>
               <Button className="w-full bg-blue-600 hover:bg-blue-700">
@@ -77,8 +76,9 @@ export function PricingSection() {
             </CardHeader>
             <CardContent className="space-y-4">
               <div className="text-center">
-                <span className="text-4xl font-bold text-blue-600">$45</span>
-                <span className="text-gray-600"> - $65</span>
+                <span className="text-4xl font-bold text-blue-600">
+                  Rp35.000
+                </span>
               </div>
               <ul className="space-y-2">
                 <li className="flex items-center gap-2">
