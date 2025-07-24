@@ -7,10 +7,10 @@ export function Navbar() {
         <a href="/" className="flex items-center justify-center">
           <Droplets className="h-8 w-8 text-blue-600" />
           <span className="text-foreground ml-2 hidden text-xl font-bold sm:block">
-            SteamWash Pro
+            Binar-Binar
           </span>
         </a>
-        <nav className="ml-auto flex gap-4 sm:gap-6">
+        <nav className="ml-auto hidden gap-4 min-[360px]:flex sm:gap-6">
           {links.map((link) => (
             <a
               key={link}
@@ -26,4 +26,4 @@ export function Navbar() {
   );
 }
 
-const links = ["services", "benefits", "pricing", "contact"];
+const links = ["layanan", "keuntungan", "harga", "kontak"];
