@@ -6,21 +6,33 @@ import { BenefitSection } from "./components/section/benefit";
 import { PricingSection } from "./components/section/pricing";
 import { ContactSection } from "./components/section/contact";
 import { Footer } from "./components/section/footer";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      refetchOnWindowFocus: false,
+      refetchOnMount: false,
+    },
+  },
+});
 
 function App() {
   return (
-    <ThemeProvider defaultTheme="system" storageKey="steam_site-theme">
-      <Navbar />
+    <QueryClientProvider client={queryClient}>
+      <ThemeProvider defaultTheme="system" storageKey="steam_site-theme">
+        <Navbar />
 
-      <main className="flex-1">
-        <HeroSection />
-        <ServiceSection />
-        <BenefitSection />
-        <PricingSection />
-        <ContactSection />
-      </main>
-      <Footer />
-    </ThemeProvider>
+        <main className="flex-1">
+          <HeroSection />
+          <ServiceSection />
+          <BenefitSection />
+          <PricingSection />
+          <ContactSection />
+        </main>
+        <Footer />
+      </ThemeProvider>
+    </QueryClientProvider>
   );
 }
 
