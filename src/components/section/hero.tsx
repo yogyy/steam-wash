@@ -6,11 +6,10 @@ import NumberFlow from "@number-flow/react";
 import { SimpleIconsWhatsapp } from "../icons/simple-icon";
 import { useQuery } from "@tanstack/react-query";
 import { fetchTotalCustomer } from "@/lib/fetch";
-import { Skeleton } from "../ui/skeleton";
 import { cn } from "@/lib/utils";
 
 export function HeroSection() {
-  const { data, isLoading } = useQuery({
+  const { data } = useQuery({
     queryKey: ["total"],
     queryFn: fetchTotalCustomer,
   });
@@ -59,14 +58,10 @@ export function HeroSection() {
                 <span className="font-medium">4.9/5</span>
               </div>
               <span>•</span>
-              {isLoading ? (
-                <Skeleton className="bg-foreground/60 h-5 w-20" />
-              ) : (
-                <span className="text-nowrap">
-                  <NumberFlow value={data?.total ? data.total : 200} />+
-                  Pelanggan
-                </span>
-              )}
+
+              <span className="text-nowrap">
+                <NumberFlow value={data?.total ? data.total : 200} />+ Pelanggan
+              </span>
               <span className="hidden sm:block">•</span>
               <span className="hidden text-nowrap sm:block">
                 Layanan Hari yang Sama
