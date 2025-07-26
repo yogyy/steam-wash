@@ -6,7 +6,7 @@ import { cn } from "@/lib/utils";
 export function ContactSection() {
   return (
     <section
-      id="contact"
+      id="kontak"
       className="w-full scroll-mt-16 bg-blue-600 py-12 text-white md:py-24 lg:py-32"
     >
       <div className="container mx-auto px-4 md:px-6">
