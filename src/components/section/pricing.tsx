@@ -6,7 +6,8 @@ import {
   CardHeader,
   CardTitle,
 } from "../ui/card";
-import { Button } from "../ui/button";
+import { buttonVariants } from "../ui/button";
+import { cn } from "@/lib/utils";
 
 export function PricingSection() {
   return (
@@ -51,16 +52,22 @@ export function PricingSection() {
                 </li>
                 <li className="flex items-center gap-2">
                   <CheckCircle className="h-4 w-4 text-green-600" />
-                  <span className="text-sm">Chain lubrication</span>
+                  <span className="text-sm">Wheel cleaning</span>
                 </li>
                 <li className="flex items-center gap-2">
                   <CheckCircle className="h-4 w-4 text-green-600" />
-                  <span className="text-sm">Semir ban</span>
+                  <span className="text-sm">Tire Dressing</span>
                 </li>
               </ul>
-              <Button className="w-full bg-blue-600 hover:bg-blue-700">
+              <a
+                href="https://wa.me/+6285156617556"
+                className={cn(
+                  buttonVariants({ size: "default" }),
+                  "w-full cursor-pointer bg-blue-600 hover:bg-blue-700 dark:text-white",
+                )}
+              >
                 Book Motorcycle Wash
-              </Button>
+              </a>
             </CardContent>
           </Card>
 
@@ -71,7 +78,7 @@ export function PricingSection() {
                 <Car className="h-6 w-6 text-blue-600" />
               </div>
               <CardDescription>
-                Comprehensive cleaning for cars and SUVs
+                Pembersihan menyeluruh untuk mobil dan SUV
               </CardDescription>
             </CardHeader>
             <CardContent className="space-y-4">
@@ -87,7 +94,7 @@ export function PricingSection() {
                 </li>
                 <li className="flex items-center gap-2">
                   <CheckCircle className="h-4 w-4 text-green-600" />
-                  <span className="text-sm">Interior sanitization</span>
+                  <span className="text-sm">Interior vacum</span>
                 </li>
                 <li className="flex items-center gap-2">
                   <CheckCircle className="h-4 w-4 text-green-600" />
@@ -98,9 +105,15 @@ export function PricingSection() {
                   <span className="text-sm">Window cleaning</span>
                 </li>
               </ul>
-              <Button className="w-full bg-blue-600 hover:bg-blue-700">
+              <a
+                href="https://wa.me/+6285156617556"
+                className={cn(
+                  buttonVariants({ size: "default" }),
+                  "w-full cursor-pointer bg-blue-600 hover:bg-blue-700 dark:text-white",
+                )}
+              >
                 Book Car Wash
-              </Button>
+              </a>
             </CardContent>
           </Card>
         </div>
