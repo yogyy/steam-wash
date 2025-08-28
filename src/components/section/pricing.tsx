@@ -37,7 +37,7 @@ export function PricingSection() {
             <CardContent className="space-y-4">
               <div className="text-center">
                 <span className="text-4xl font-bold text-blue-600">
-                  Rp7.000
+                  Rp10.000
                 </span>
                 <span className="text-gray-600"> - Rp15.000</span>
               </div>
@@ -84,7 +84,7 @@ export function PricingSection() {
             <CardContent className="space-y-4">
               <div className="text-center">
                 <span className="text-4xl font-bold text-blue-600">
-                  Rp35.000
+                  Rp40.000
                 </span>
               </div>
               <ul className="space-y-2">
