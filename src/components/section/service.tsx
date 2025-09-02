@@ -76,7 +76,7 @@ function LayananMotor() {
         </ul>
         <div className="pt-2">
           <span className="text-secondary-foreground/60">mulai dari</span>
-          <span className="text-2xl font-bold text-blue-600"> Rp7.000</span>
+          <span className="text-2xl font-bold text-blue-600"> Rp10.000</span>
         </div>
       </CardContent>
     </Card>
