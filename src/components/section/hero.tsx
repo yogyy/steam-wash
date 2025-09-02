@@ -60,7 +60,8 @@ export function HeroSection() {
               <span>•</span>
 
               <span className="text-nowrap">
-                <NumberFlow value={data?.total ? data.total : 200} />+ Pelanggan
+                <NumberFlow value={data?.total ? data.total : 1111} />+
+                Pelanggan
               </span>
               <span className="hidden sm:block">•</span>
               <span className="hidden text-nowrap sm:block">
