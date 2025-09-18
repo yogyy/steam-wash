@@ -23,7 +23,8 @@ function RouteComponent() {
             onClick={() =>
               authClient.signIn.social({
                 provider: "google",
-                callbackURL: "http://localhost:5173/playlist-recommendation",
+                callbackURL:
+                  "https://binar-binar.pages.dev/playlist-recommendation",
               })
             }
           >
