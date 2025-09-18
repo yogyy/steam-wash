@@ -4,7 +4,7 @@ import { useEffect, useRef } from "react";
 import { useInfiniteQuery } from "@tanstack/react-query";
 import { ScrollArea } from "./ui/scroll-area";
 import { authClient } from "@/lib/auth-client";
-import { localURL } from "@/lib/fetch";
+import { prodURL } from "@/lib/fetch";
 
 export function Messages() {
   const lastMsgRef = useRef<HTMLDivElement | null>(null);
@@ -14,7 +14,7 @@ export function Messages() {
     queryKey: ["playlist"],
     queryFn: async ({ pageParam }) => {
       const res = await fetch(
-        `${localURL}/api/playlist?before=${pageParam || ""}`,
+        `${prodURL}/api/playlist?before=${pageParam || ""}`,
       );
       return res.json();
     },
