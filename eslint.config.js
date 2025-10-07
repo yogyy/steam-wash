@@ -17,6 +17,7 @@ export default tseslint.config([
     ],
     rules: {
       "react-refresh/only-export-components": "warn",
+      "@typescript-eslint/no-unused-vars": ["warn"],
     },
     languageOptions: {
       ecmaVersion: 2020,
