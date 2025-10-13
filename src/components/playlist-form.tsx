@@ -1,16 +1,22 @@
 import { SendHorizonal } from "lucide-react";
 import { Input } from "./ui/input";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { addSongTitle } from "@/lib/fetch";
 import { Button } from "./ui/button";
-import { authClient } from "@/lib/auth-client";
+import { authClient, useSession } from "@/lib/auth-client";
+import { addSong } from "@/lib/fetch";
 
 export const AddRecommendationForm = () => {
   const queryClient = useQueryClient();
+  const { data: session } = useSession();
+
   const { mutate } = useMutation({
-    mutationFn: addSongTitle,
+    mutationFn: addSong,
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["playlist"] });
+    },
+    onError: (err) => {
+      alert("error bosku, check console");
+      console.error(err);
     },
   });
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -18,9 +24,14 @@ export const AddRecommendationForm = () => {
 
     const formData = new FormData(e.currentTarget);
 
+    // TODO: add toast if not session
+
     mutate({
-      songTitle: formData.get("title") as string,
-      songLink: formData.get("link") as string,
+      data: {
+        songTitle: formData.get("title"),
+        songLink: formData.get("link"),
+        userId: session?.user.id,
+      },
     });
 
     e.currentTarget.reset(); // optional: clear form
