@@ -1,55 +1,38 @@
-interface ResponseTotal {
-  id: string;
-  total: number;
-}
+import { createServerFn } from "@tanstack/react-start";
+import z4 from "zod/v4";
+import { playlistRecommendations } from "./db/schema";
+import { db } from "./db";
+import { nanoid } from "nanoid";
+import { setResponseStatus } from "@tanstack/react-start/server";
 
-interface ResponsePlaylist {
-  id: string;
-  userId: string;
-  songTitle: string;
-  songLink?: string;
-  createdAt: string;
-  recommendedBy: {
-    name: string;
-    image: string;
-  };
-}
+export const getTotalCustomer = createServerFn({ method: "GET" }).handler(
+  async () => await db.query.customer.findFirst(),
+);
 
-export const localURL = "http://127.0.0.1:8787";
-export const prodURL = "https://steam-be.yogyy.workers.dev";
+const newSongSchema = z4.object({
+  userId: z4.string(),
+  songTitle: z4.string(),
+  songLink: z4.string().optional(),
+});
 
-export const fetchTotalCustomer = async (): Promise<ResponseTotal> => {
-  const response = await fetch(`${prodURL}/api/total`);
-  return await response.json();
-};
-
-export const fetchSession = async (): Promise<ResponseTotal> => {
-  const response = await fetch(`${prodURL}/api/auth/get-session`, {
-    credentials: "include",
+export const addSong = createServerFn({
+  method: "POST",
+})
+  .inputValidator((song: unknown) => newSongSchema.parse(song))
+  .handler(async ({ data }) => {
+    try {
+      const [playlist] = await db
+        .insert(playlistRecommendations)
+        .values({
+          id: nanoid(),
+          ...data,
+        })
+        .returning();
+      setResponseStatus(201);
+      return { playlist };
+    } catch (err) {
+      console.error(err);
+      setResponseStatus(500);
+      return { error: "Failed to create playlist" };
+    }
   });
-  return await response.json();
-};
-
-export const fetchRecommendationSongs = async (): Promise<
-  ResponsePlaylist[]
-> => {
-  const response = await fetch(`${prodURL}/api/playlist`);
-  return await response.json();
-};
-
-interface SongRecommendation {
-  songTitle: string;
-  songLink?: string;
-}
-
-export const addSongTitle = async (newSong: SongRecommendation) => {
-  const res = await fetch(`${prodURL}/api/playlist`, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(newSong),
-    credentials: "include",
-  });
-
-  if (!res.ok) throw new Error("Failed to add todo");
-  return res.json();
-};

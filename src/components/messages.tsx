@@ -4,18 +4,25 @@ import { useEffect, useRef } from "react";
 import { useInfiniteQuery } from "@tanstack/react-query";
 import { ScrollArea } from "./ui/scroll-area";
 import { authClient } from "@/lib/auth-client";
-import { prodURL } from "@/lib/fetch";
+import { Recomendation } from "@/lib/db/schema";
+
+type PlaylistRecommendation = Recomendation & {
+  recommendedBy: { name: string; image: string };
+};
+
+interface PlaylistResponse {
+  data: PlaylistRecommendation[];
+  nextCursor: string | null;
+}
 
 export function Messages() {
   const lastMsgRef = useRef<HTMLDivElement | null>(null);
   const { data: session } = authClient.useSession();
 
-  const { data, isLoading } = useInfiniteQuery({
+  const { data, isLoading } = useInfiniteQuery<PlaylistResponse>({
     queryKey: ["playlist"],
     queryFn: async ({ pageParam }) => {
-      const res = await fetch(
-        `${prodURL}/api/playlist?before=${pageParam || ""}`,
-      );
+      const res = await fetch(`/api/playlist?before=${pageParam || ""}`);
       return res.json();
     },
     getNextPageParam: (lastPage) => lastPage.nextCursor ?? undefined,
@@ -75,7 +82,6 @@ export function Messages() {
 function ChatSkeleton() {
   return (
     <div className="relative flex max-w-lg flex-col-reverse gap-1.5 px-2">
-      {/* Generate 3-5 skeleton messages */}
       {Array.from({ length: 14 }).map((_, idx) => (
         <div
           key={idx}
