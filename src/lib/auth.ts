@@ -1,6 +1,5 @@
 import { betterAuth } from "better-auth";
-import { admin } from "better-auth/plugins";
-import { reactStartCookies } from "better-auth/react-start";
+import { tanstackStartCookies } from "better-auth/tanstack-start";
 import { drizzleAdapter } from "better-auth/adapters/drizzle";
 import { db } from "./db";
 import * as schema from "./db/schema";
@@ -31,5 +30,5 @@ export const auth = betterAuth({
       redirectURI: `${process.env.BETTER_AUTH_URL}/api/auth/callback/google`,
     },
   },
-  plugins: [admin(), reactStartCookies()],
+  plugins: [tanstackStartCookies()],
 });
