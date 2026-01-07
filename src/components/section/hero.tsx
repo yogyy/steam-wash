@@ -5,13 +5,13 @@ import Placeholder from "@/assets/placeholder.svg";
 import NumberFlow from "@number-flow/react";
 import { SimpleIconsWhatsapp } from "../icons/simple-icon";
 import { useQuery } from "@tanstack/react-query";
-import { getTotalCustomer } from "@/lib/fetch";
 import { cn } from "@/lib/utils";
+import { fetchTotalCustomer } from "@/lib/fetch";
 
 export function HeroSection() {
   const { data } = useQuery({
     queryKey: ["total-customer"],
-    queryFn: getTotalCustomer,
+    queryFn: fetchTotalCustomer,
   });
 
   return (
