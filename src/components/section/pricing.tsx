@@ -7,7 +7,7 @@ import {
   CardTitle,
 } from "../ui/card";
 import { buttonVariants } from "../ui/button";
-import { cn } from "@/lib/utils";
+import { cn, phoneNumber } from "@/lib/utils";
 
 export function PricingSection() {
   return (
@@ -60,7 +60,7 @@ export function PricingSection() {
                 </li>
               </ul>
               <a
-                href="https://wa.me/+6285156617556"
+                href={`https://wa.me/${phoneNumber}`}
                 className={cn(
                   buttonVariants({ size: "default" }),
                   "w-full cursor-pointer bg-blue-600 hover:bg-blue-700 dark:text-white",
@@ -106,7 +106,7 @@ export function PricingSection() {
                 </li>
               </ul>
               <a
-                href="https://wa.me/+6285156617556"
+                href={`https://wa.me/${phoneNumber}`}
                 className={cn(
                   buttonVariants({ size: "default" }),
                   "w-full cursor-pointer bg-blue-600 hover:bg-blue-700 dark:text-white",

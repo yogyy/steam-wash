@@ -1,7 +1,7 @@
 import { Clock, MapPin, Phone } from "lucide-react";
 import { buttonVariants } from "../ui/button";
 import { SimpleIconsWhatsapp } from "../icons/simple-icon";
-import { cn } from "@/lib/utils";
+import { cn, phoneNumber } from "@/lib/utils";
 
 export function ContactSection() {
   return (
@@ -50,7 +50,7 @@ export function ContactSection() {
             <p className="text-blue-100">Setiap Hari 08:00 - 18:00</p>
           </div>
           <a
-            href="https://wa.me/+6285156617556"
+            href={`https://wa.me/${phoneNumber}`}
             target="_blank"
             className="hover:bg-foreground/20 flex flex-col items-center space-y-2 rounded-md p-2 text-center transition-colors"
           >

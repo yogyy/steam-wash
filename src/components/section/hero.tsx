@@ -42,7 +42,7 @@ export function HeroSection() {
             </div>
             <div className="flex flex-col gap-2 min-[400px]:flex-row">
               <a
-                href="https://wa.me/+6285156617556"
+                href={`https://wa.me/${phoneNumber}`}
                 className={cn(
                   buttonVariants({ size: "lg" }),
                   "cursor-pointer bg-[#25D366] hover:bg-[#25D366]/70",
