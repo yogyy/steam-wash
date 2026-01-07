@@ -5,7 +5,7 @@ import Placeholder from "@/assets/placeholder.svg";
 import NumberFlow from "@number-flow/react";
 import { SimpleIconsWhatsapp } from "../icons/simple-icon";
 import { useQuery } from "@tanstack/react-query";
-import { cn } from "@/lib/utils";
+import { cn, phoneNumber } from "@/lib/utils";
 import { fetchTotalCustomer } from "@/lib/fetch";
 
 export function HeroSection() {
@@ -60,7 +60,7 @@ export function HeroSection() {
               <span>•</span>
 
               <span className="text-nowrap">
-                <NumberFlow value={data?.total ? data.total : 1111} />+
+                <NumberFlow value={data?.total ? data.total : 2121} />+
                 Pelanggan
               </span>
               <span className="hidden sm:block">•</span>
