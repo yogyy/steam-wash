@@ -18,7 +18,7 @@ export function BenefitSection() {
             </p>
           </div>
         </div>
-        <div className="mx-auto grid max-w-5xl items-start gap-6 py-12 md:grid-cols-2 lg:grid-cols-4 lg:gap-8">
+        <div className="mx-auto grid max-w-5xl items-start gap-6 py-12 md:grid-cols-2 lg:grid-cols-3 lg:gap-8">
           {benefits.map((item) => (
             <Card className="h-full text-center" key={item.name}>
               <CardHeader>
@@ -40,11 +40,6 @@ export function BenefitSection() {
 
 const benefits = [
   {
-    icon: <Leaf className="mx-auto h-12 w-12 text-green-600" />,
-    name: "Eco-Friendly",
-    desc: "Menggunakan 90% lebih sedikit air dibandingkan metode pencucian tradisional. Tanpa bahan kimia berbahaya.",
-  },
-  {
     icon: <Shield className="mx-auto h-12 w-12 text-blue-600" />,
     name: "Paint Safe",
     desc: "Pembersihan steam yang lembut melindungi cat dan lapisan kendaraan Anda.",
@@ -52,7 +47,7 @@ const benefits = [
   {
     icon: <Zap className="mx-auto h-12 w-12 text-yellow-600" />,
     name: "Deep Clean",
-    desc: "Steam bersuhu tinggi menghilangkan bakteri, kuman, dan kotoran membandel.",
+    desc: "Steam bertekanan tinggi menghilangkan kotoran membandel.",
   },
   {
     icon: <Clock className="mx-auto h-12 w-12 text-purple-600" />,
