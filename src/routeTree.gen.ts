@@ -9,101 +9,38 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as PlaylistRecommendationRouteImport } from './routes/playlist-recommendation'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as ApiTotalRouteImport } from './routes/api/total'
-import { Route as ApiPlaylistRouteImport } from './routes/api/playlist'
-import { Route as ApiAuthSplatRouteImport } from './routes/api/auth/$'
 
-const PlaylistRecommendationRoute = PlaylistRecommendationRouteImport.update({
-  id: '/playlist-recommendation',
-  path: '/playlist-recommendation',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ApiTotalRoute = ApiTotalRouteImport.update({
-  id: '/api/total',
-  path: '/api/total',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ApiPlaylistRoute = ApiPlaylistRouteImport.update({
-  id: '/api/playlist',
-  path: '/api/playlist',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ApiAuthSplatRoute = ApiAuthSplatRouteImport.update({
-  id: '/api/auth/$',
-  path: '/api/auth/$',
-  getParentRoute: () => rootRouteImport,
-} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/playlist-recommendation': typeof PlaylistRecommendationRoute
-  '/api/playlist': typeof ApiPlaylistRoute
-  '/api/total': typeof ApiTotalRoute
-  '/api/auth/$': typeof ApiAuthSplatRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/playlist-recommendation': typeof PlaylistRecommendationRoute
-  '/api/playlist': typeof ApiPlaylistRoute
-  '/api/total': typeof ApiTotalRoute
-  '/api/auth/$': typeof ApiAuthSplatRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/playlist-recommendation': typeof PlaylistRecommendationRoute
-  '/api/playlist': typeof ApiPlaylistRoute
-  '/api/total': typeof ApiTotalRoute
-  '/api/auth/$': typeof ApiAuthSplatRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths:
-    | '/'
-    | '/playlist-recommendation'
-    | '/api/playlist'
-    | '/api/total'
-    | '/api/auth/$'
+  fullPaths: '/'
   fileRoutesByTo: FileRoutesByTo
-  to:
-    | '/'
-    | '/playlist-recommendation'
-    | '/api/playlist'
-    | '/api/total'
-    | '/api/auth/$'
-  id:
-    | '__root__'
-    | '/'
-    | '/playlist-recommendation'
-    | '/api/playlist'
-    | '/api/total'
-    | '/api/auth/$'
+  to: '/'
+  id: '__root__' | '/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  PlaylistRecommendationRoute: typeof PlaylistRecommendationRoute
-  ApiPlaylistRoute: typeof ApiPlaylistRoute
-  ApiTotalRoute: typeof ApiTotalRoute
-  ApiAuthSplatRoute: typeof ApiAuthSplatRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/playlist-recommendation': {
-      id: '/playlist-recommendation'
-      path: '/playlist-recommendation'
-      fullPath: '/playlist-recommendation'
-      preLoaderRoute: typeof PlaylistRecommendationRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/': {
       id: '/'
       path: '/'
@@ -111,45 +48,12 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/api/total': {
-      id: '/api/total'
-      path: '/api/total'
-      fullPath: '/api/total'
-      preLoaderRoute: typeof ApiTotalRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/api/playlist': {
-      id: '/api/playlist'
-      path: '/api/playlist'
-      fullPath: '/api/playlist'
-      preLoaderRoute: typeof ApiPlaylistRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/api/auth/$': {
-      id: '/api/auth/$'
-      path: '/api/auth/$'
-      fullPath: '/api/auth/$'
-      preLoaderRoute: typeof ApiAuthSplatRouteImport
-      parentRoute: typeof rootRouteImport
-    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  PlaylistRecommendationRoute: PlaylistRecommendationRoute,
-  ApiPlaylistRoute: ApiPlaylistRoute,
-  ApiTotalRoute: ApiTotalRoute,
-  ApiAuthSplatRoute: ApiAuthSplatRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { createStart } from '@tanstack/react-start'
-declare module '@tanstack/react-start' {
-  interface Register {
-    router: Awaited<ReturnType<typeof getRouter>>
-  }
-}
