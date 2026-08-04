@@ -1,4 +1,3 @@
-import { ModeToggle } from "../mode-toggle";
 
 export function Footer() {
   return (
@@ -19,8 +18,6 @@ export function Footer() {
         >
           Privacy Policy
         </a>
-
-        <ModeToggle />
       </nav>
     </footer>
   );

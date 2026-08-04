@@ -14,7 +14,7 @@ export const Route = createRootRouteWithContext<{
 function RootDocument() {
   return (
     <>
-      <ThemeProvider defaultTheme="system" storageKey="steam_site-theme">
+      <ThemeProvider defaultTheme="light" storageKey="steam_site-theme">
         <Outlet />
       </ThemeProvider>
       <TanStackRouterDevtools position="bottom-right" />
